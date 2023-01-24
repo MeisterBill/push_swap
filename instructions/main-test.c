@@ -40,21 +40,17 @@ int main(void)
 	t_pile *pile_b = NULL;
 
 	// Ajouter quelques éléments à la pile a
-	push(&pile_a, 10);
-	push(&pile_a, 38);
+	push(&pile_a, 1);
+	push(&pile_a, 2);
 	push(&pile_a, 3);
-	push(&pile_a, 4);
-	push(&pile_a, 122);
 
 	// Ajouter quelques éléments à la pile b
-	/*
-	push(&pile_b, 1);
-	push(&pile_b, 2);
-	push(&pile_b, 3);
+
 	push(&pile_b, 4);
 	push(&pile_b, 5);
-	*/
+	push(&pile_b, 6);
 
+	pushh(&pile_a, &pile_b);
 	// Exécuter quelques opérations sur les piles
 	/*
 	sa(&pile_a);

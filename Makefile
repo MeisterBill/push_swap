@@ -1,6 +1,6 @@
 NAME = push_swap
 
-SRC = instructions/main-test.c instructions/swap.c instructions/push.c instructions/rotate.c instructions/reverse_rotate.c
+SRC = instructions/main-test.c instructions/swap.c instructions/push.c instructions/rotate.c instructions/reverse_rotate.c extra_utils.c algos/sort.c
 
 OBJ = $(SRC:.c=.o)
 

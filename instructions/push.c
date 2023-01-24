@@ -1,31 +1,25 @@
 #include "../includes/push_swap.h"
 
-void pa(t_pile **pile_a, t_pile **pile_b)
+void	pushh(t_pile **src, t_pile **dst)
 {
-	// Vérifier s'il y a au moins un élément dans la pile b
-	if (*pile_b == NULL)
-	{
-		return;
-	}
+	t_pile	*tmp;
 
-	// Prendre le premier élément de pile_b et le mettre sur pile_a
-	t_pile *temp = *pile_b;
-	*pile_b = (*pile_b)->next;
-	temp->next = *pile_a;
-	*pile_a = temp;
+	if (*src == NULL)
+		return ;
+	tmp = (*src)->next;
+	(*src)->next = *dst;
+	*dst = *src;
+	*src = tmp;
+}
+
+void	pa(t_pile **pile_a, t_pile **pile_b)
+{
+	pushh(pile_b, pile_a);
+	ft_putstr("pa\n");
 }
 
 void pb(t_pile **pile_a, t_pile **pile_b)
 {
-	// Vérifier s'il y a au moins un élément dans la pile a
-	if (*pile_a == NULL)
-	{
-		return;
-	}
-
-	// Prendre le premier élément de pile_a et le mettre sur pile_b
-	t_pile *temp = *pile_a;
-	*pile_a = (*pile_a)->next;
-	temp->next = *pile_b;
-	*pile_b = temp;
+	pushh(pile_a, pile_b);
+	ft_putstr("pb\n");
 }

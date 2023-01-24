@@ -34,9 +34,12 @@ void rra(t_pile **pile);
 void rrb(t_pile **pile);
 void rrr(t_pile **pile_a, t_pile **pile_b);
 
+void pushh(t_pile **src, t_pile **dst);
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
+/* Extra Utils */
+int ft_strtoi(const char *str);
+void ft_putstr(char *str);
+void free_stack(t_pile **pile);
+void exit_error(t_pile **pile_a, t_pile **pile_b);
 
 #endif
