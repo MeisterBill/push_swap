@@ -6,7 +6,7 @@
 /*   By: artvan-d <artvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 12:08:23 by artvan-d          #+#    #+#             */
-/*   Updated: 2023/01/26 13:56:21 by artvan-d         ###   ########.fr       */
+/*   Updated: 2023/01/26 14:49:04 by artvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,6 @@ int	main(int ac, char **argv)
 	stack_size = get_stack_size(stack_a);
 	set_index(stack_a, stack_size + 1);
 	push_swap(&stack_a, &stack_b, stack_size);
-	// ft_print_stack(stack_a);
 	free_stack(&stack_a);
 	free_stack(&stack_b);
 	return (0);

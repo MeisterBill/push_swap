@@ -6,30 +6,52 @@
 #    By: artvan-d <artvan-d@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/26 12:08:13 by artvan-d          #+#    #+#              #
-#    Updated: 2023/01/26 12:08:16 by artvan-d         ###   ########.fr        #
+#    Updated: 2023/01/26 14:34:48 by artvan-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-SRC = instructions/main-test.c instructions/swap.c instructions/push.c instructions/rotate.c instructions/reverse_rotate.c extra_utils.c algos/sort.c
-
-OBJ = $(SRC:.c=.o)
-
+RM = rm -rf
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror
 
-all: $(NAME)
+INC = \
+			push_swap.h \
 
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+INCS = $(addprefix -I, $(INC))
+			
+SRCS = \
+			checks/check.c \
+			checks/check_utils.c \
+			checks/tab.c \
+			instructions/push.c \
+			instructions/rev_rot.c \
+			instructions/rot.c \
+			instructions/swap.c \
+			algos/do_move.c \
+			algos/sort.c \
+			algos/init_cost.c \
+			algos/init_pos.c \
+			push_swap.c \
+			edit_stack.c \
+			extra_utils.c \
+			ft_split.c \
+			
+OBJS = ${SRCS:.c=.o}
 
-clean:
-	rm -f $(OBJ)
+all : ${NAME}
 
-fclean: clean
-	rm -f $(NAME)
+$(NAME) : $(OBJS)
+		@$(CC) $(FLAGS) -o $(NAME) $(OBJS)
 
-re: fclean all
+clean :
+		${RM} ${OBJS}
 
-.PHONY: all clean fclean re
+fclean : clean 
+		${RM} ${NAME}
+
+re : fclean all
+
+%.o: %.c
+		${CC} ${FLAGS} -o $@ -c $<

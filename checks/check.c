@@ -6,7 +6,7 @@
 /*   By: artvan-d <artvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 13:59:32 by artvan-d          #+#    #+#             */
-/*   Updated: 2023/01/26 13:18:27 by artvan-d         ###   ########.fr       */
+/*   Updated: 2023/01/26 14:51:57 by artvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ static int	check_dup(char **argv)
 	}
 	return (0);
 }
-
 
 static int	nb_of_zero_inargv(char *tab)
 {
@@ -96,6 +95,6 @@ char	**filltab_and_checks(int ac, char **argv)
 		}
 	}
 	else
-		tab = filltab_with_one(argv);
+		tab = fill_tab_with_one(argv);
 	return (tab);
 }

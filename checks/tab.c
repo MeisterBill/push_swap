@@ -6,7 +6,7 @@
 /*   By: artvan-d <artvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 13:59:50 by artvan-d          #+#    #+#             */
-/*   Updated: 2023/01/26 13:14:49 by artvan-d         ###   ########.fr       */
+/*   Updated: 2023/01/26 14:49:52 by artvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ int	ft_size_tab(char **tab)
 	return (i);
 }
 
-
 char	**filltab_with_more(int ac, char **argv)
 {
 	char	**tab;
@@ -60,8 +59,7 @@ char	**filltab_with_more(int ac, char **argv)
 		tab[i - 1] = argv[i];
 		i++;
 	}
-	/* ESSAYER AVEC tab[i - 1] a la ligne en dessous */
-	tab[i] = NULL;
+	tab[i - 1] = NULL;
 	return (tab);
 }
 
