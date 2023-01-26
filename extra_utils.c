@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   extra_utils.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: artvan-d <artvan-d@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/26 12:07:14 by artvan-d          #+#    #+#             */
+/*   Updated: 2023/01/26 12:15:05 by artvan-d         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "includes/push_swap.h"
 
 int	ft_strtoi(const char *str)
@@ -25,9 +37,9 @@ int	ft_strtoi(const char *str)
 	return (nb * sign);
 }
 
-void ft_putstr(char *str)
+void	ft_putstr(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
@@ -37,12 +49,12 @@ void ft_putstr(char *str)
 	}
 }
 
-void free_stack(t_pile **pile)
+void	free_stack(t_pile **pile)
 {
-	t_pile *tmp;
+	t_pile	*tmp;
 
 	if (!pile || !(*pile))
-		return;
+		return ;
 	while (*pile)
 	{
 		tmp = (*pile)->next;
@@ -52,7 +64,7 @@ void free_stack(t_pile **pile)
 	*pile = NULL;
 }
 
-void exit_error(t_pile **pile_a, t_pile **pile_b)
+void	exit_error(t_pile **pile_a, t_pile **pile_b)
 {
 	if (pile_a == NULL || *pile_a != NULL)
 		free_stack(pile_a);

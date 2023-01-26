@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: artvan-d <artvan-d@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/26 12:04:28 by artvan-d          #+#    #+#             */
+/*   Updated: 2023/01/26 12:04:37 by artvan-d         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "includes/push_swap.h"
 
 static int	get_highest_index(t_pile *stack)
 {
-	int index;
+	int	index;
 
 	index = stack->index;
 	while (stack)

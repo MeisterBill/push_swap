@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   check_utils2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: artvan-d <artvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/26 12:04:14 by artvan-d          #+#    #+#             */
-/*   Updated: 2023/01/26 12:04:17 by artvan-d         ###   ########.fr       */
+/*   Created: 2023/01/26 12:11:09 by artvan-d          #+#    #+#             */
+/*   Updated: 2023/01/26 12:14:34 by artvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
-
-void	pushh(t_pile **src, t_pile **dst)
+static int	ft_nbcmp(char *nb1, char *nb2)
 {
-	t_pile	*tmp;
-
-	if (*src == NULL)
-		return ;
-	tmp = (*src)->next;
-	(*src)->next = *dst;
-	*dst = *src;
-	*src = tmp;
+	return (ft_strtoi(nb1) == ft_strtoi(nb2));
 }
 
-void	pa(t_pile **pile_a, t_pile **pile_b)
+static int	check_dup(char **argv)
 {
-	pushh(pile_b, pile_a);
-	ft_putstr("pa\n");
-}
+	int	i;
+	int	j;
 
-void	pb(t_pile **pile_a, t_pile **pile_b)
-{
-	pushh(pile_a, pile_b);
-	ft_putstr("pb\n");
+	i = 0;
+	if (!argv)
+		return (0);
+	while (argv[i])
+	{
+		j = i + 1;
+		while (argv[j])
+		{
+			if (ft_nbcmp(argv[i], argv[j]))
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }
