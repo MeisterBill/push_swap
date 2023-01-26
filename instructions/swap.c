@@ -1,31 +1,46 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   swap.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: artvan-d <artvan-d@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/26 13:25:11 by artvan-d          #+#    #+#             */
+/*   Updated: 2023/01/26 13:35:58 by artvan-d         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
-void sa(t_pile **pile)
+static void	swap(t_pile *stack)
 {
-	if (*pile != NULL && (*pile)->next != NULL)
-	{
-		// Échanger les deux premiers éléments de la pile
-		t_pile *temp = (*pile)->next;
-		(*pile)->next = temp->next;
-		temp->next = *pile;
-		*pile = temp;
-	}
+	int	tmp;
+
+	if (stack == NULL || stack->next == NULL)
+		return ;
+	tmp = stack->value;
+	stack->value = stack->next->value;
+	stack->next->value = tmp;
+	tmp = stack->index;
+	stack->index = stack->next->index;
+	stack->next->index = tmp;
 }
 
-void sb(t_pile **pile)
+void	do_sa(t_pile **stack_a)
 {
-	if (*pile != NULL && (*pile)->next != NULL)
-	{
-		// Échanger les deux premiers éléments de la pile
-		t_pile *temp = (*pile)->next;
-		(*pile)->next = temp->next;
-		temp->next = *pile;
-		*pile = temp;
-	}
+	swap(*stack_a);
+	ft_putstr("sa\n");
 }
 
-void ss(t_pile **pile_a, t_pile **pile_b)
+void	do_sb(t_pile **stack_b)
 {
-	sa(pile_a);
-	sb(pile_b);
+	swap(*stack_b);
+	ft_putstr("sb\n");
+}
+
+void	do_ss(t_pile **stack_a, t_pile **stack_b)
+{
+	swap(*stack_a);
+	swap(*stack_b);
+	ft_putstr("ss\n");
 }

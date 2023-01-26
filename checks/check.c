@@ -6,11 +6,55 @@
 /*   By: artvan-d <artvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 13:59:32 by artvan-d          #+#    #+#             */
-/*   Updated: 2023/01/26 12:10:07 by artvan-d         ###   ########.fr       */
+/*   Updated: 2023/01/26 13:18:27 by artvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+static int	ft_nbcmp(char *nb1, char *nb2)
+{
+	return (ft_strtoi(nb1) == ft_strtoi(nb2));
+}
+
+static int	check_dup(char **argv)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	if (!argv)
+		return (0);
+	while (argv[i])
+	{
+		j = i + 1;
+		while (argv[j])
+		{
+			if (ft_nbcmp(argv[i], argv[j]))
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
+
+static int	nb_of_zero_inargv(char *tab)
+{
+	int	i;
+
+	i = 0;
+	if (!tab)
+		return (0);
+	if (check_if_sign(tab[i]) == 1)
+		i++;
+	while (tab[i] && tab[i] == '0')
+		i++;
+	if (tab[i] != '\0')
+		return (0);
+	return (1);
+}
 
 int	check_argv(char **tab)
 {
