@@ -6,7 +6,7 @@
 /*   By: artvan-d <artvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 12:07:14 by artvan-d          #+#    #+#             */
-/*   Updated: 2023/01/26 12:15:05 by artvan-d         ###   ########.fr       */
+/*   Updated: 2023/01/26 13:45:58 by artvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ void	ft_putstr(char *str)
 	}
 }
 
-void	free_stack(t_pile **pile)
+void	free_stack(t_stack **pile)
 {
-	t_pile	*tmp;
+	t_stack	*tmp;
 
 	if (!pile || !(*pile))
 		return ;
@@ -64,12 +64,12 @@ void	free_stack(t_pile **pile)
 	*pile = NULL;
 }
 
-void	exit_error(t_pile **pile_a, t_pile **pile_b)
+void	exit_error(t_stack **stack_a, t_stack **stack_b)
 {
-	if (pile_a == NULL || *pile_a != NULL)
-		free_stack(pile_a);
-	if (pile_b == NULL || *pile_b != NULL)
-		free_stack(pile_b);
+	if (stack_a == NULL || *stack_a != NULL)
+		free_stack(stack_a);
+	if (stack_b == NULL || *stack_b != NULL)
+		free_stack(stack_b);
 	write(2, "Error\n", 6);
 	exit(1);
 }

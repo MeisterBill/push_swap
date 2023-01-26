@@ -6,15 +6,15 @@
 /*   By: artvan-d <artvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 12:04:14 by artvan-d          #+#    #+#             */
-/*   Updated: 2023/01/26 12:04:17 by artvan-d         ###   ########.fr       */
+/*   Updated: 2023/01/26 13:45:58 by artvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	pushh(t_pile **src, t_pile **dst)
+void	pushh(t_stack **src, t_stack **dst)
 {
-	t_pile	*tmp;
+	t_stack	*tmp;
 
 	if (*src == NULL)
 		return ;
@@ -24,14 +24,14 @@ void	pushh(t_pile **src, t_pile **dst)
 	*src = tmp;
 }
 
-void	pa(t_pile **pile_a, t_pile **pile_b)
+void	pa(t_stack **stack_a, t_stack **stack_b)
 {
-	pushh(pile_b, pile_a);
+	pushh(stack_b, stack_a);
 	ft_putstr("pa\n");
 }
 
-void	pb(t_pile **pile_a, t_pile **pile_b)
+void	pb(t_stack **stack_a, t_stack **stack_b)
 {
-	pushh(pile_a, pile_b);
+	pushh(stack_a, stack_b);
 	ft_putstr("pb\n");
 }

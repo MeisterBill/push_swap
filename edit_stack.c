@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   edit_pile.c                                       :+:      :+:    :+:   */
+/*   edit_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: artvan-d <artvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 13:29:17 by artvan-d          #+#    #+#             */
-/*   Updated: 2023/01/26 13:29:29 by artvan-d         ###   ########.fr       */
+/*   Updated: 2023/01/26 13:44:33 by artvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 /* returns the newly created stack element */
 
-t_pile	*new_stack(int value)
+t_stack	*new_stack(int value)
 {
-	t_pile	*new;
+	t_stack	*new;
 
 	new = malloc(sizeof * new);
 	if (!new)
@@ -33,7 +33,7 @@ t_pile	*new_stack(int value)
 
 /* return the last element of the stack (the bottom) */
 
-t_pile	*get_last_stack(t_pile *stack)
+t_stack	*get_last_stack(t_stack *stack)
 {
 	while (stack && stack->next != NULL)
 		stack = stack->next;
@@ -42,7 +42,7 @@ t_pile	*get_last_stack(t_pile *stack)
 
 /* return the second last element of the stack */
 
-t_pile	*get_before_last_stack(t_pile *stack)
+t_stack	*get_before_last_stack(t_stack *stack)
 {
 	while (stack && stack->next && stack->next->next != NULL)
 		stack = stack->next;
@@ -51,9 +51,9 @@ t_pile	*get_before_last_stack(t_pile *stack)
 
 /* adds an element to the bottom of the stack */
 
-void	add_bottom(t_pile **stack, t_pile *new)
+void	add_bottom(t_stack **stack, t_stack *new)
 {
-	t_pile	*bottom;
+	t_stack	*bottom;
 
 	if (!new)
 		return ;
@@ -68,7 +68,7 @@ void	add_bottom(t_pile **stack, t_pile *new)
 
 /* returns the number of elements in the stack */
 
-int	get_stack_size(t_pile *stack)
+int	get_stack_size(t_stack *stack)
 {
 	int	size;
 

@@ -6,13 +6,13 @@
 /*   By: artvan-d <artvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 13:25:11 by artvan-d          #+#    #+#             */
-/*   Updated: 2023/01/26 13:35:58 by artvan-d         ###   ########.fr       */
+/*   Updated: 2023/01/26 13:44:33 by artvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static void	swap(t_pile *stack)
+static void	swap(t_stack *stack)
 {
 	int	tmp;
 
@@ -26,19 +26,19 @@ static void	swap(t_pile *stack)
 	stack->next->index = tmp;
 }
 
-void	do_sa(t_pile **stack_a)
+void	do_sa(t_stack **stack_a)
 {
 	swap(*stack_a);
 	ft_putstr("sa\n");
 }
 
-void	do_sb(t_pile **stack_b)
+void	do_sb(t_stack **stack_b)
 {
 	swap(*stack_b);
 	ft_putstr("sb\n");
 }
 
-void	do_ss(t_pile **stack_a, t_pile **stack_b)
+void	do_ss(t_stack **stack_a, t_stack **stack_b)
 {
 	swap(*stack_a);
 	swap(*stack_b);
