@@ -6,13 +6,13 @@
 /*   By: artvan-d <artvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 12:04:14 by artvan-d          #+#    #+#             */
-/*   Updated: 2023/01/26 14:41:07 by artvan-d         ###   ########.fr       */
+/*   Updated: 2023/01/26 15:23:21 by artvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static void	pushh(t_stack **src, t_stack **dst)
+static void	push(t_stack **src, t_stack **dst)
 {
 	t_stack	*tmp;
 
