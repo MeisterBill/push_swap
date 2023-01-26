@@ -6,11 +6,34 @@
 /*   By: artvan-d <artvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 12:08:23 by artvan-d          #+#    #+#             */
-/*   Updated: 2023/01/26 13:45:58 by artvan-d         ###   ########.fr       */
+/*   Updated: 2023/01/26 13:56:21 by artvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
+
+static t_stack	*fill_stack_a(int size, char **tab)
+{
+	t_stack		*stack_a;
+	long int	nb;
+	int			i;
+
+	stack_a = NULL;
+	nb = 0;
+	i = 0;
+	while (i < size && tab[i])
+	{
+		nb = ft_strtoi(tab[i]);
+		if (nb > INT_MAX || nb < INT_MIN)
+			exit_error(&stack_a, NULL);
+		if (i == 0)
+			stack_a = new_stack((int)nb);
+		else
+			add_bottom(&stack_a, new_stack((int)nb));
+		i++;
+	}
+	return (stack_a);
+}
 
 static void	set_index(t_stack *stack_a, int stack_size)
 {
@@ -66,11 +89,21 @@ int	main(int ac, char **argv)
 {
 	t_stack		*stack_a;
 	t_stack		*stack_b;
-	int			stacksize;
+	int			stack_size;
 	char		**tab;
 
 	if (ac < 2)
 		return (0);
 	tab = filltab_and_checks(ac, argv);
-
+	if (tab == NULL)
+		exit_error(NULL, NULL);
+	stack_b = NULL;
+	stack_a = fill_stack_a(ft_size_tab(tab), tab);
+	stack_size = get_stack_size(stack_a);
+	set_index(stack_a, stack_size + 1);
+	push_swap(&stack_a, &stack_b, stack_size);
+	// ft_print_stack(stack_a);
+	free_stack(&stack_a);
+	free_stack(&stack_b);
+	return (0);
 }

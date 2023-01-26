@@ -6,7 +6,7 @@
 /*   By: artvan-d <artvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 13:22:07 by artvan-d          #+#    #+#             */
-/*   Updated: 2023/01/26 13:44:33 by artvan-d         ###   ########.fr       */
+/*   Updated: 2023/01/26 13:49:48 by artvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,19 @@ static void	rev_rotate(t_stack **stack)
 	before_tail->next = NULL;
 }
 
-void	do_rra(t_stack **stack_a)
+void	rra(t_stack **stack_a)
 {
 	rev_rotate(stack_a);
 	ft_putstr("rra\n");
 }
 
-void	do_rrb(t_stack **stack_b)
+void	rrb(t_stack **stack_b)
 {
 	rev_rotate(stack_b);
 	ft_putstr("rrb\n");
 }
 
-void	do_rrr(t_stack **stack_a, t_stack **stack_b)
+void	rrr(t_stack **stack_a, t_stack **stack_b)
 {
 	rev_rotate(stack_a);
 	rev_rotate(stack_b);
