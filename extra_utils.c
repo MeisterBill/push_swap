@@ -6,7 +6,7 @@
 /*   By: artvan-d <artvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 12:07:14 by artvan-d          #+#    #+#             */
-/*   Updated: 2023/01/26 13:45:58 by artvan-d         ###   ########.fr       */
+/*   Updated: 2023/02/03 12:08:53 by artvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,19 +49,19 @@ void	ft_putstr(char *str)
 	}
 }
 
-void	free_stack(t_stack **pile)
+void	free_stack(t_stack **stack)
 {
 	t_stack	*tmp;
 
-	if (!pile || !(*pile))
+	if (!stack || !(*stack))
 		return ;
-	while (*pile)
+	while (*stack)
 	{
-		tmp = (*pile)->next;
-		free(*pile);
-		*pile = tmp;
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
 	}
-	*pile = NULL;
+	*stack = NULL;
 }
 
 void	exit_error(t_stack **stack_a, t_stack **stack_b)
